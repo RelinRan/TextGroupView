@@ -424,7 +424,9 @@ public class TextGroupView extends LinearLayout {
         //右边输入
         setParams(editView, editWidth, editHeight);
         setMarginPaddingWeight(editView, editMargin, editMarginLeft, editMarginTop, editMarginRight, editMarginBottom, editPadding, editPaddingLeft, editPaddingTop, editPaddingRight, editPaddingBottom, editWeight);
-        editView.setText(editText);
+        if (!TextUtils.isEmpty(editText)) {
+            editView.setText(editText);
+        }
         editView.setTextColor(editTextColor);
         editView.setFocusable(editFocusable);
         editView.setHintTextColor(editHintTextColor);
@@ -440,7 +442,6 @@ public class TextGroupView extends LinearLayout {
         editView.setEllipsize(truncateAts[editEllipsize]);
         editView.setInputType(inputTypes[editInputType]);
         editView.setText(editText);
-        editView.setBackgroundColor(Color.YELLOW);
         editView.setTextColor(editTextColor);
         editView.setTextSize(TypedValue.COMPLEX_UNIT_PX, editTextSize);
         editView.setGravity(editGravity);
@@ -1688,7 +1689,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImageMargin(int rightImageMargin) {
         this.rightImageMargin = rightImageMargin;
-        setMargin(rightImageView,rightImageMargin,rightImageMarginLeft,rightImageMarginTop,rightImageMarginRight,rightImageMarginBottom);
+        setMargin(rightImageView, rightImageMargin, rightImageMarginLeft, rightImageMarginTop, rightImageMarginRight, rightImageMarginBottom);
     }
 
     public int getRightImageMarginLeft() {
@@ -1697,7 +1698,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImageMarginLeft(int rightImageMarginLeft) {
         this.rightImageMarginLeft = rightImageMarginLeft;
-        setMargin(rightImageView,rightImageMargin,rightImageMarginLeft,rightImageMarginTop,rightImageMarginRight,rightImageMarginBottom);
+        setMargin(rightImageView, rightImageMargin, rightImageMarginLeft, rightImageMarginTop, rightImageMarginRight, rightImageMarginBottom);
     }
 
     public int getRightImageMarginTop() {
@@ -1706,7 +1707,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImageMarginTop(int rightImageMarginTop) {
         this.rightImageMarginTop = rightImageMarginTop;
-        setMargin(rightImageView,rightImageMargin,rightImageMarginLeft,rightImageMarginTop,rightImageMarginRight,rightImageMarginBottom);
+        setMargin(rightImageView, rightImageMargin, rightImageMarginLeft, rightImageMarginTop, rightImageMarginRight, rightImageMarginBottom);
     }
 
     public int getRightImageMarginRight() {
@@ -1715,7 +1716,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImageMarginRight(int rightImageMarginRight) {
         this.rightImageMarginRight = rightImageMarginRight;
-        setMargin(rightImageView,rightImageMargin,rightImageMarginLeft,rightImageMarginTop,rightImageMarginRight,rightImageMarginBottom);
+        setMargin(rightImageView, rightImageMargin, rightImageMarginLeft, rightImageMarginTop, rightImageMarginRight, rightImageMarginBottom);
     }
 
     public int getRightImageMarginBottom() {
@@ -1724,7 +1725,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImageMarginBottom(int rightImageMarginBottom) {
         this.rightImageMarginBottom = rightImageMarginBottom;
-        setMargin(rightImageView,rightImageMargin,rightImageMarginLeft,rightImageMarginTop,rightImageMarginRight,rightImageMarginBottom);
+        setMargin(rightImageView, rightImageMargin, rightImageMarginLeft, rightImageMarginTop, rightImageMarginRight, rightImageMarginBottom);
     }
 
     public int getRightImagePadding() {
@@ -1733,7 +1734,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImagePadding(int rightImagePadding) {
         this.rightImagePadding = rightImagePadding;
-        setPadding(rightImageView,rightImagePadding,rightTextPaddingLeft,rightImagePaddingTop,rightTextPaddingRight,rightImagePaddingBottom);
+        setPadding(rightImageView, rightImagePadding, rightTextPaddingLeft, rightImagePaddingTop, rightTextPaddingRight, rightImagePaddingBottom);
     }
 
     public int getRightImagePaddingLeft() {
@@ -1742,7 +1743,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImagePaddingLeft(int rightImagePaddingLeft) {
         this.rightImagePaddingLeft = rightImagePaddingLeft;
-        setPadding(rightImageView,rightImagePadding,rightTextPaddingLeft,rightImagePaddingTop,rightTextPaddingRight,rightImagePaddingBottom);
+        setPadding(rightImageView, rightImagePadding, rightTextPaddingLeft, rightImagePaddingTop, rightTextPaddingRight, rightImagePaddingBottom);
     }
 
     public int getRightImagePaddingTop() {
@@ -1751,7 +1752,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImagePaddingTop(int rightImagePaddingTop) {
         this.rightImagePaddingTop = rightImagePaddingTop;
-        setPadding(rightImageView,rightImagePadding,rightTextPaddingLeft,rightImagePaddingTop,rightTextPaddingRight,rightImagePaddingBottom);
+        setPadding(rightImageView, rightImagePadding, rightTextPaddingLeft, rightImagePaddingTop, rightTextPaddingRight, rightImagePaddingBottom);
     }
 
     public int getRightImagePaddingRight() {
@@ -1760,7 +1761,7 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImagePaddingRight(int rightImagePaddingRight) {
         this.rightImagePaddingRight = rightImagePaddingRight;
-        setPadding(rightImageView,rightImagePadding,rightTextPaddingLeft,rightImagePaddingTop,rightTextPaddingRight,rightImagePaddingBottom);
+        setPadding(rightImageView, rightImagePadding, rightTextPaddingLeft, rightImagePaddingTop, rightTextPaddingRight, rightImagePaddingBottom);
     }
 
     public int getRightImagePaddingBottom() {
@@ -1769,6 +1770,6 @@ public class TextGroupView extends LinearLayout {
 
     public void setRightImagePaddingBottom(int rightImagePaddingBottom) {
         this.rightImagePaddingBottom = rightImagePaddingBottom;
-        setPadding(rightImageView,rightImagePadding,rightTextPaddingLeft,rightImagePaddingTop,rightTextPaddingRight,rightImagePaddingBottom);
+        setPadding(rightImageView, rightImagePadding, rightTextPaddingLeft, rightImagePaddingTop, rightTextPaddingRight, rightImagePaddingBottom);
     }
 }
