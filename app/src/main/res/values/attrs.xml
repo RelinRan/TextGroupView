@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="solid" format="color" />
+    <attr name="topLeftRadius" format="dimension" />
+    <attr name="topRightRadius" format="dimension" />
+    <attr name="bottomLeftRadius" format="dimension" />
+    <attr name="bottomRightRadius" format="dimension" />
+    <attr name="strokeColor" format="color" />
+    <attr name="circleColor" format="color" />
+    <attr name="strokeWidth" format="dimension" />
+    <attr name="radius" format="dimension" />
+    <attr name="cornerRadius" format="dimension" />
+    <attr name="borderWidth" format="dimension" />
+    <attr name="shape" format="enum">
+        <enum name="rectangle" value="0"></enum>
+        <enum name="oval" value="1"></enum>
+        <enum name="line" value="2"></enum>
+        <enum name="ring" value="2"></enum>
+    </attr>
+
+    <declare-styleable name="TextGroupView">
+        <!--背景颜色-->
+        <attr name="solid" />
+        <!--背景边缘线颜色-->
+        <attr name="strokeColor" />
+        <!--背景边缘线粗细-->
+        <attr name="strokeWidth" />
+        <!--背景圆角大小-->
+        <attr name="radius" />
+        <!--背景左上圆角-->
+        <attr name="topLeftRadius" />
+        <!--背景右上圆角-->
+        <attr name="topRightRadius" />
+        <!--背景底左圆角-->
+        <attr name="bottomLeftRadius" />
+        <!--背景底右圆角-->
+        <attr name="bottomRightRadius" />
+        <!--形状-->
+        <attr name="shape" />
+        <!--############公共############-->
+        <attr name="all_textColor" format="color" />
+        <attr name="all_textSize" format="dimension" />
+        <attr name="all_textGravity" format="integer" />
+        <attr name="all_textWeight" format="float" />
+        <!--############左边图片############-->
+        <attr name="left_imageSrc" format="reference" />
+        <attr name="left_imageBackground" format="reference" />
+        <attr name="left_imageWidth" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="left_imageHeight" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="left_imageScaleType">
+            <flag name="matrix" value="0" />
+            <flag name="fit_xy" value="1" />
+            <flag name="fit_start" value="2" />
+            <flag name="fit_center" value="3" />
+            <flag name="fit_end" value="4" />
+            <flag name="center" value="5" />
+            <flag name="center_crop" value="6" />
+            <flag name="center_inside" value="7" />
+        </attr>
+        <attr name="left_imageMargin" format="dimension" />
+        <attr name="left_imageMarginLeft" format="dimension" />
+        <attr name="left_imageMarginTop" format="dimension" />
+        <attr name="left_imageMarginRight" format="dimension" />
+        <attr name="left_imageMarginBottom" format="dimension" />
+        <attr name="left_imagePadding" format="dimension" />
+        <attr name="left_imagePaddingLeft" format="dimension" />
+        <attr name="left_imagePaddingTop" format="dimension" />
+        <attr name="left_imagePaddingRight" format="dimension" />
+        <attr name="left_imagePaddingBottom" format="dimension" />
+
+        <!--############左边文字############-->
+        <attr name="left_textBackground" format="reference" />
+        <attr name="left_text" format="string" />
+        <attr name="left_textSize" format="dimension" />
+        <attr name="left_textColor" format="color" />
+        <attr name="left_textGravity">
+            <flag name="left" value="3" />
+            <flag name="top" value="48" />
+            <flag name="right" value="5" />
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+        </attr>
+        <attr name="left_textWeight" format="float" />
+        <attr name="left_textMargin" format="dimension" />
+        <attr name="left_textMarginLeft" format="dimension" />
+        <attr name="left_textMarginTop" format="dimension" />
+        <attr name="left_textMarginRight" format="dimension" />
+        <attr name="left_textMarginBottom" format="dimension" />
+        <attr name="left_textPadding" format="dimension" />
+        <attr name="left_textPaddingLeft" format="dimension" />
+        <attr name="left_textPaddingTop" format="dimension" />
+        <attr name="left_textPaddingRight" format="dimension" />
+        <attr name="left_textPaddingBottom" format="dimension" />
+        <!--############中间文字############-->
+        <attr name="center_textBackground" format="reference" />
+        <attr name="center_text" format="string" />
+        <attr name="center_textSize" format="dimension" />
+        <attr name="center_textColor" format="color" />
+        <attr name="center_textGravity">
+            <flag name="left" value="3" />
+            <flag name="top" value="48" />
+            <flag name="right" value="5" />
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+        </attr>
+        <attr name="center_textWeight" format="float" />
+        <attr name="center_textMargin" format="dimension" />
+        <attr name="center_textMarginLeft" format="dimension" />
+        <attr name="center_textMarginTop" format="dimension" />
+        <attr name="center_textMarginRight" format="dimension" />
+        <attr name="center_textMarginBottom" format="dimension" />
+        <attr name="center_textPadding" format="dimension" />
+        <attr name="center_textPaddingLeft" format="dimension" />
+        <attr name="center_textPaddingTop" format="dimension" />
+        <attr name="center_textPaddingRight" format="dimension" />
+        <attr name="center_textPaddingBottom" format="dimension" />
+        <!--############右边文字############-->
+        <attr name="right_textBackground" format="reference" />
+        <attr name="right_text" format="string" />
+        <attr name="right_textSize" format="dimension" />
+        <attr name="right_textColor" format="color" />
+        <attr name="right_textGravity">
+            <flag name="left" value="3" />
+            <flag name="top" value="48" />
+            <flag name="right" value="5" />
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+        </attr>
+        <attr name="right_textWeight" format="float" />
+        <attr name="right_textMargin" format="dimension" />
+        <attr name="right_textMarginLeft" format="dimension" />
+        <attr name="right_textMarginTop" format="dimension" />
+        <attr name="right_textMarginRight" format="dimension" />
+        <attr name="right_textMarginBottom" format="dimension" />
+        <attr name="right_textPadding" format="dimension" />
+        <attr name="right_textPaddingLeft" format="dimension" />
+        <attr name="right_textPaddingTop" format="dimension" />
+        <attr name="right_textPaddingRight" format="dimension" />
+        <attr name="right_textPaddingBottom" format="dimension" />
+        <!--############右边输入框############-->
+        <attr name="edit_width" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="edit_height" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="edit_weight" format="float" />
+        <attr name="edit_focusable" format="boolean" />
+        <attr name="edit_hintTextColor" format="color" />
+        <attr name="edit_hintText" format="string" />
+        <attr name="edit_background" format="reference" />
+        <attr name="edit_singleLine" format="boolean" />
+        <attr name="edit_maxLines" format="integer" />
+        <attr name="edit_digits" format="string" />
+        <attr name="edit_ellipsize">
+            <flag name="start" value="0" />
+            <flag name="middle" value="1" />
+            <flag name="right" value="2" />
+            <flag name="end" value="3" />
+            <flag name="marquee" value="4" />
+        </attr>
+        <attr name="edit_text" format="string" />
+        <attr name="edit_inputType">
+            <flag name="text" value="0" />
+            <flag name="textPassword" value="1" />
+            <flag name="numberDecimal" value="2" />
+            <flag name="textVisiblePassword" value="3" />
+            <flag name="numberPassword" value="4" />
+            <flag name="number" value="5" />
+        </attr>
+        <attr name="edit_textSize" format="dimension" />
+        <attr name="edit_textColor" format="color" />
+        <attr name="edit_gravity">
+            <flag name="left" value="3" />
+            <flag name="top" value="48" />
+            <flag name="right" value="5" />
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+        </attr>
+        <attr name="edit_margin" format="dimension" />
+        <attr name="edit_marginLeft" format="dimension" />
+        <attr name="edit_marginTop" format="dimension" />
+        <attr name="edit_marginRight" format="dimension" />
+        <attr name="edit_marginBottom" format="dimension" />
+        <attr name="edit_padding" format="dimension" />
+        <attr name="edit_paddingLeft" format="dimension" />
+        <attr name="edit_paddingTop" format="dimension" />
+        <attr name="edit_paddingRight" format="dimension" />
+        <attr name="edit_paddingBottom" format="dimension" />
+        <!--############右边图片############-->
+        <attr name="right_imageSrc" format="reference" />
+        <attr name="right_imageBackground" format="reference" />
+        <attr name="right_imageWidth" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="right_imageHeight" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="right_imageScaleType">
+            <flag name="matrix" value="0" />
+            <flag name="fit_xy" value="1" />
+            <flag name="fit_start" value="2" />
+            <flag name="fit_center" value="3" />
+            <flag name="fit_end" value="4" />
+            <flag name="center" value="5" />
+            <flag name="center_crop" value="6" />
+            <flag name="center_inside" value="7" />
+        </attr>
+        <attr name="right_imageMargin" format="dimension" />
+        <attr name="right_imageMarginLeft" format="dimension" />
+        <attr name="right_imageMarginTop" format="dimension" />
+        <attr name="right_imageMarginRight" format="dimension" />
+        <attr name="right_imageMarginBottom" format="dimension" />
+        <attr name="right_imagePadding" format="dimension" />
+        <attr name="right_imagePaddingLeft" format="dimension" />
+        <attr name="right_imagePaddingTop" format="dimension" />
+        <attr name="right_imagePaddingRight" format="dimension" />
+        <attr name="right_imagePaddingBottom" format="dimension" />
+    </declare-styleable>
+
+</resources>
