@@ -1,5 +1,5 @@
 # TextGroupView
-ImageView + TextView + TextView +TextView+ EditText +ImageView 实现的组合控件
+ImageView + TextView + TextView +TextView+ EditText +ImageView + ImageView 实现的组合控件
 ## JitPack依赖
 ### A.项目/build.grade
 ```
