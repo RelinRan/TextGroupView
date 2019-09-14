@@ -203,6 +203,37 @@
         <attr name="edit_paddingTop" format="dimension" />
         <attr name="edit_paddingRight" format="dimension" />
         <attr name="edit_paddingBottom" format="dimension" />
+        <!--############中间图片############-->
+        <attr name="center_imageSrc" format="reference" />
+        <attr name="center_imageBackground" format="reference" />
+        <attr name="center_imageWidth" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="center_imageHeight" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="center_imageScaleType">
+            <flag name="matrix" value="0" />
+            <flag name="fit_xy" value="1" />
+            <flag name="fit_start" value="2" />
+            <flag name="fit_center" value="3" />
+            <flag name="fit_end" value="4" />
+            <flag name="center" value="5" />
+            <flag name="center_crop" value="6" />
+            <flag name="center_inside" value="7" />
+        </attr>
+        <attr name="center_imageMargin" format="dimension" />
+        <attr name="center_imageMarginLeft" format="dimension" />
+        <attr name="center_imageMarginTop" format="dimension" />
+        <attr name="center_imageMarginRight" format="dimension" />
+        <attr name="center_imageMarginBottom" format="dimension" />
+        <attr name="center_imagePadding" format="dimension" />
+        <attr name="center_imagePaddingLeft" format="dimension" />
+        <attr name="center_imagePaddingTop" format="dimension" />
+        <attr name="center_imagePaddingRight" format="dimension" />
+        <attr name="center_imagePaddingBottom" format="dimension" />
         <!--############右边图片############-->
         <attr name="right_imageSrc" format="reference" />
         <attr name="right_imageBackground" format="reference" />
