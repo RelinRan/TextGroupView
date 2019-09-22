@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
@@ -142,6 +143,7 @@ public class TextGroupView extends LinearLayout {
     private int editBackground;
     private boolean editSingleLine;
     private int editMaxLines;
+    private int editMaxLength;
     private String editDigits;
     private int editEllipsize;
     private int editInputType;
@@ -350,11 +352,12 @@ public class TextGroupView extends LinearLayout {
             //右边输入
             editWidth = typedArray.getLayoutDimension(R.styleable.TextGroupView_edit_width, LayoutParams.WRAP_CONTENT);
             editHeight = typedArray.getLayoutDimension(R.styleable.TextGroupView_edit_height, LayoutParams.WRAP_CONTENT);
-            editHintTextColor = typedArray.getColor(R.styleable.TextGroupView_edit_hintTextColor, 0);
+            editHintTextColor = typedArray.getColor(R.styleable.TextGroupView_edit_hintTextColor, Color.parseColor("#B9B9B9"));
             editFocusable = typedArray.getBoolean(R.styleable.TextGroupView_edit_focusable, true);
             editHintText = typedArray.getString(R.styleable.TextGroupView_edit_hintText);
             editBackground = typedArray.getResourceId(R.styleable.TextGroupView_edit_background, 0);
             editMaxLines = typedArray.getInt(R.styleable.TextGroupView_edit_maxLines, 0);
+            editMaxLength = typedArray.getInt(R.styleable.TextGroupView_edit_maxLength, Integer.MAX_VALUE);
             editDigits = typedArray.getString(R.styleable.TextGroupView_edit_digits);
             editEllipsize = typedArray.getInt(R.styleable.TextGroupView_edit_ellipsize, 0);
             editSingleLine = typedArray.getBoolean(R.styleable.TextGroupView_edit_singleLine, false);
@@ -465,6 +468,7 @@ public class TextGroupView extends LinearLayout {
         if (!TextUtils.isEmpty(editText)) {
             editView.setText(editText);
         }
+        editView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editMaxLength)});
         editView.setTextColor(editTextColor);
         editView.setFocusable(editFocusable);
         editView.setHintTextColor(editHintTextColor);
@@ -1510,6 +1514,15 @@ public class TextGroupView extends LinearLayout {
     public void setEditMaxLines(int editMaxLines) {
         this.editMaxLines = editMaxLines;
         editView.setMaxLines(editMaxLines);
+    }
+
+    public int getEditMaxLength() {
+        return editMaxLength;
+    }
+
+    public void setEditMaxLength(int editMaxLength) {
+        this.editMaxLength = editMaxLength;
+        editView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editMaxLength)});
     }
 
     public String getEditDigits() {
