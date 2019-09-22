@@ -321,7 +321,7 @@ public class TextGroupView extends LinearLayout {
             centerTextColor = typedArray.getColor(R.styleable.TextGroupView_center_textColor, Color.BLACK);
             centerTextSize = typedArray.getDimensionPixelSize(R.styleable.TextGroupView_center_textSize, TEXT_SIZE);
             centerTextGravity = typedArray.getInt(R.styleable.TextGroupView_center_textGravity, Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            centerTextWeight = typedArray.getInt(R.styleable.TextGroupView_center_textWeight, 1);
+            centerTextWeight = typedArray.getFloat(R.styleable.TextGroupView_center_textWeight, 1);
             centerTextMargin = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_textMargin, 0);
             centerTextMarginLeft = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_textMarginLeft, 10);
             centerTextMarginTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_textMarginTop, 0);
@@ -338,7 +338,7 @@ public class TextGroupView extends LinearLayout {
             rightTextColor = typedArray.getColor(R.styleable.TextGroupView_right_textColor, Color.BLACK);
             rightTextSize = typedArray.getDimensionPixelSize(R.styleable.TextGroupView_right_textSize, TEXT_SIZE);
             rightTextGravity = typedArray.getInt(R.styleable.TextGroupView_right_textGravity, Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            rightTextWeight = typedArray.getInt(R.styleable.TextGroupView_right_textWeight, -1);
+            rightTextWeight = typedArray.getFloat(R.styleable.TextGroupView_right_textWeight, -1);
             rightTextMargin = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_right_textMargin, 0);
             rightTextMarginLeft = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_right_textMarginLeft, 0);
             rightTextMarginTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_right_textMarginTop, 0);
@@ -366,7 +366,7 @@ public class TextGroupView extends LinearLayout {
             editTextColor = typedArray.getColor(R.styleable.TextGroupView_edit_textColor, Color.BLACK);
             editTextSize = typedArray.getDimensionPixelSize(R.styleable.TextGroupView_edit_textSize, TEXT_SIZE);
             editGravity = typedArray.getInt(R.styleable.TextGroupView_edit_gravity, Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            editWeight = typedArray.getInt(R.styleable.TextGroupView_edit_weight, -1);
+            editWeight = typedArray.getFloat(R.styleable.TextGroupView_edit_weight, -1);
             editMargin = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_margin, 0);
             editMarginLeft = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_marginLeft, 20);
             editMarginTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_marginTop, 0);
