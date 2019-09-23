@@ -478,15 +478,15 @@ public class TextGroupView extends LinearLayout {
         if (editMaxLines != 0) {
             editView.setMaxLines(editMaxLines);
         }
-        if (!TextUtils.isEmpty(editDigits)) {
-            editView.setKeyListener(DigitsKeyListener.getInstance(editDigits));
-        }
         editView.setEllipsize(truncateAts[editEllipsize]);
         editView.setInputType(inputTypes[editInputType]);
         editView.setText(editText);
         editView.setTextColor(editTextColor);
         editView.setTextSize(TypedValue.COMPLEX_UNIT_PX, editTextSize);
         editView.setGravity(editGravity);
+        if (!TextUtils.isEmpty(editDigits)) {
+            editView.setKeyListener(DigitsKeyListener.getInstance(editDigits));
+        }
         //中间图标
         setMarginPaddingWeight(centerImageView, centerImageMargin, centerImageMarginLeft, centerImageMarginTop, centerImageMarginRight, centerImageMarginBottom, centerImagePadding, centerImagePaddingLeft, centerImagePaddingTop, centerImagePaddingRight, centerImagePaddingBottom, -1);
         centerImageView.setImageResource(centerImageSrc);
