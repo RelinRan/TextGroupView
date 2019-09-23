@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
@@ -225,12 +224,12 @@ public class TextGroupView extends LinearLayout {
         initAttrs(context, null);
     }
 
-    public TextGroupView(Context context, @Nullable AttributeSet attrs) {
+    public TextGroupView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initAttrs(context, attrs);
     }
 
-    public TextGroupView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TextGroupView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttrs(context, attrs);
     }
