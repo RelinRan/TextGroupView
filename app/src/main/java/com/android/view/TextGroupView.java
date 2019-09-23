@@ -249,6 +249,7 @@ public class TextGroupView extends LinearLayout {
             if (typedArray.getString(R.styleable.TextGroupView_shape) != null) {
                 shape = Integer.parseInt(typedArray.getString(R.styleable.TextGroupView_shape));
             }
+
             radius = typedArray.getDimension(R.styleable.TextGroupView_radius, 0);
             topLeftRadius = typedArray.getDimension(R.styleable.TextGroupView_topLeftRadius, 0);
             topRightRadius = typedArray.getDimension(R.styleable.TextGroupView_topRightRadius, 0);
