@@ -974,7 +974,7 @@ public class TextGroupView extends LinearLayout {
     }
 
     public String getLeftText() {
-        return leftText;
+        return leftTextView.getText().toString();
     }
 
     public void setLeftText(String leftText) {
@@ -1118,7 +1118,7 @@ public class TextGroupView extends LinearLayout {
     }
 
     public String getCenterText() {
-        return centerText;
+        return centerTextView.getText().toString();
     }
 
     public void setCenterText(String centerText) {
@@ -1262,7 +1262,7 @@ public class TextGroupView extends LinearLayout {
     }
 
     public String getRightText() {
-        return rightText;
+        return rightTextView.getText().toString();
     }
 
     public void setRightText(String rightText) {
@@ -1509,7 +1509,7 @@ public class TextGroupView extends LinearLayout {
     }
 
     public String getEditText() {
-        return editText;
+        return editView.getText().toString();
     }
 
     public void setEditText(String editText) {
