@@ -53,6 +53,7 @@ public class TextGroupView extends LinearLayout {
     private TextView centerTextView;
     private TextView rightTextView;
     private EditText editView;
+    private ImageView centerImageView;
     private ImageView rightImageView;
 
     private int allTextColor;
@@ -160,6 +161,24 @@ public class TextGroupView extends LinearLayout {
     private int editPaddingRight;
     private int editPaddingBottom;
 
+
+    //中间图片控件属性
+    private int centerImageSrc;
+    private int centerImageBackground;
+    private int centerImageWidth;
+    private int centerImageHeight;
+    private int centerImageScaleType;
+    private int centerImageMargin;
+    private int centerImageMarginLeft;
+    private int centerImageMarginTop;
+    private int centerImageMarginRight;
+    private int centerImageMarginBottom;
+    private int centerImagePadding;
+    private int centerImagePaddingLeft;
+    private int centerImagePaddingTop;
+    private int centerImagePaddingRight;
+    private int centerImagePaddingBottom;
+
     //右边图片控件属性
     private int rightImageSrc;
     private int rightImageBackground;
@@ -249,7 +268,6 @@ public class TextGroupView extends LinearLayout {
             if (typedArray.getString(R.styleable.TextGroupView_shape) != null) {
                 shape = Integer.parseInt(typedArray.getString(R.styleable.TextGroupView_shape));
             }
-
             radius = typedArray.getDimension(R.styleable.TextGroupView_radius, 0);
             topLeftRadius = typedArray.getDimension(R.styleable.TextGroupView_topLeftRadius, 0);
             topRightRadius = typedArray.getDimension(R.styleable.TextGroupView_topRightRadius, 0);
@@ -300,7 +318,7 @@ public class TextGroupView extends LinearLayout {
             centerTextColor = typedArray.getColor(R.styleable.TextGroupView_center_textColor, Color.BLACK);
             centerTextSize = typedArray.getDimensionPixelSize(R.styleable.TextGroupView_center_textSize, TEXT_SIZE);
             centerTextGravity = typedArray.getInt(R.styleable.TextGroupView_center_textGravity, Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            centerTextWeight = typedArray.getInt(R.styleable.TextGroupView_center_textWeight, 1);
+            centerTextWeight = typedArray.getFloat(R.styleable.TextGroupView_center_textWeight, 1);
             centerTextMargin = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_textMargin, 0);
             centerTextMarginLeft = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_textMarginLeft, 10);
             centerTextMarginTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_textMarginTop, 0);
@@ -317,7 +335,7 @@ public class TextGroupView extends LinearLayout {
             rightTextColor = typedArray.getColor(R.styleable.TextGroupView_right_textColor, Color.BLACK);
             rightTextSize = typedArray.getDimensionPixelSize(R.styleable.TextGroupView_right_textSize, TEXT_SIZE);
             rightTextGravity = typedArray.getInt(R.styleable.TextGroupView_right_textGravity, Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            rightTextWeight = typedArray.getInt(R.styleable.TextGroupView_right_textWeight, -1);
+            rightTextWeight = typedArray.getFloat(R.styleable.TextGroupView_right_textWeight, -1);
             rightTextMargin = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_right_textMargin, 0);
             rightTextMarginLeft = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_right_textMarginLeft, 0);
             rightTextMarginTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_right_textMarginTop, 0);
@@ -331,11 +349,12 @@ public class TextGroupView extends LinearLayout {
             //右边输入
             editWidth = typedArray.getLayoutDimension(R.styleable.TextGroupView_edit_width, LayoutParams.WRAP_CONTENT);
             editHeight = typedArray.getLayoutDimension(R.styleable.TextGroupView_edit_height, LayoutParams.WRAP_CONTENT);
-            editHintTextColor = typedArray.getColor(R.styleable.TextGroupView_edit_hintTextColor, 0);
+            editHintTextColor = typedArray.getColor(R.styleable.TextGroupView_edit_hintTextColor, Color.parseColor("#B9B9B9"));
             editFocusable = typedArray.getBoolean(R.styleable.TextGroupView_edit_focusable, true);
             editHintText = typedArray.getString(R.styleable.TextGroupView_edit_hintText);
             editBackground = typedArray.getResourceId(R.styleable.TextGroupView_edit_background, 0);
             editMaxLines = typedArray.getInt(R.styleable.TextGroupView_edit_maxLines, 0);
+            editMaxLength = typedArray.getInt(R.styleable.TextGroupView_edit_maxLength, Integer.MAX_VALUE);
             editDigits = typedArray.getString(R.styleable.TextGroupView_edit_digits);
             editEllipsize = typedArray.getInt(R.styleable.TextGroupView_edit_ellipsize, 0);
             editSingleLine = typedArray.getBoolean(R.styleable.TextGroupView_edit_singleLine, false);
@@ -344,7 +363,7 @@ public class TextGroupView extends LinearLayout {
             editTextColor = typedArray.getColor(R.styleable.TextGroupView_edit_textColor, Color.BLACK);
             editTextSize = typedArray.getDimensionPixelSize(R.styleable.TextGroupView_edit_textSize, TEXT_SIZE);
             editGravity = typedArray.getInt(R.styleable.TextGroupView_edit_gravity, Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            editWeight = typedArray.getInt(R.styleable.TextGroupView_edit_weight, -1);
+            editWeight = typedArray.getFloat(R.styleable.TextGroupView_edit_weight, -1);
             editMargin = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_margin, 0);
             editMarginLeft = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_marginLeft, 20);
             editMarginTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_marginTop, 0);
@@ -355,6 +374,22 @@ public class TextGroupView extends LinearLayout {
             editPaddingTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_paddingTop, 0);
             editPaddingRight = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_paddingRight, 0);
             editPaddingBottom = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_edit_paddingBottom, 0);
+            //中间边图片
+            centerImageSrc = typedArray.getResourceId(R.styleable.TextGroupView_center_imageSrc, 0);
+            centerImageBackground = typedArray.getResourceId(R.styleable.TextGroupView_center_imageBackground, 0);
+            centerImageWidth = typedArray.getLayoutDimension(R.styleable.TextGroupView_center_imageWidth, LayoutParams.WRAP_CONTENT);
+            centerImageHeight = typedArray.getLayoutDimension(R.styleable.TextGroupView_center_imageHeight, LayoutParams.WRAP_CONTENT);
+            centerImageScaleType = typedArray.getInt(R.styleable.TextGroupView_center_imageScaleType, 0);
+            centerImageMargin = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imageMargin, 0);
+            centerImageMarginLeft = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imageMarginLeft, 0);
+            centerImageMarginTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imageMarginTop, 0);
+            centerImageMarginRight = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imageMarginRight, 0);
+            centerImageMarginBottom = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_right_imageMarginBottom, 0);
+            centerImagePadding = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imagePadding, 0);
+            centerImagePaddingLeft = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imagePaddingLeft, 0);
+            centerImagePaddingTop = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imagePaddingTop, 0);
+            centerImagePaddingRight = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imagePaddingRight, 0);
+            centerImagePaddingBottom = typedArray.getDimensionPixelOffset(R.styleable.TextGroupView_center_imagePaddingBottom, 0);
             //右边边图片
             rightImageSrc = typedArray.getResourceId(R.styleable.TextGroupView_right_imageSrc, 0);
             rightImageBackground = typedArray.getResourceId(R.styleable.TextGroupView_right_imageBackground, 0);
@@ -375,7 +410,7 @@ public class TextGroupView extends LinearLayout {
         setBackground();
         //设置内容对齐方式
         setGravity(Gravity.CENTER_VERTICAL);
-        //添加视图（ImageView + TextView +TextView + EditText + ImageView）
+        //添加视图（ImageView + TextView +TextView + EditText + ImageView + ImageView）
         leftImageView = new ImageView(context);
         leftImageView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         addView(leftImageView);
@@ -391,6 +426,9 @@ public class TextGroupView extends LinearLayout {
         editView = new EditText(context);
         editView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
         addView(editView);
+        centerImageView = new ImageView(context);
+        centerImageView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+        addView(centerImageView);
         rightImageView = new ImageView(context);
         rightImageView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         addView(rightImageView);
@@ -427,6 +465,7 @@ public class TextGroupView extends LinearLayout {
         if (!TextUtils.isEmpty(editText)) {
             editView.setText(editText);
         }
+        editView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editMaxLength)});
         editView.setTextColor(editTextColor);
         editView.setFocusable(editFocusable);
         editView.setHintTextColor(editHintTextColor);
@@ -436,15 +475,21 @@ public class TextGroupView extends LinearLayout {
         if (editMaxLines != 0) {
             editView.setMaxLines(editMaxLines);
         }
-        if (!TextUtils.isEmpty(editDigits)) {
-            editView.setKeyListener(DigitsKeyListener.getInstance(editDigits));
-        }
         editView.setEllipsize(truncateAts[editEllipsize]);
         editView.setInputType(inputTypes[editInputType]);
         editView.setText(editText);
         editView.setTextColor(editTextColor);
         editView.setTextSize(TypedValue.COMPLEX_UNIT_PX, editTextSize);
         editView.setGravity(editGravity);
+        if (!TextUtils.isEmpty(editDigits)) {
+            editView.setKeyListener(DigitsKeyListener.getInstance(editDigits));
+        }
+        //中间图标
+        setMarginPaddingWeight(centerImageView, centerImageMargin, centerImageMarginLeft, centerImageMarginTop, centerImageMarginRight, centerImageMarginBottom, centerImagePadding, centerImagePaddingLeft, centerImagePaddingTop, centerImagePaddingRight, centerImagePaddingBottom, -1);
+        centerImageView.setImageResource(centerImageSrc);
+        centerImageView.setBackgroundResource(centerImageBackground);
+        centerImageView.setScaleType(scaleTypes[centerImageScaleType]);
+        setParams(centerImageView, centerImageWidth, centerImageHeight);
         //右边图标
         setMarginPaddingWeight(rightImageView, rightImageMargin, rightImageMarginLeft, rightImageMarginTop, rightImageMarginRight, rightImageMarginBottom, rightImagePadding, rightImagePaddingLeft, rightImagePaddingTop, rightImagePaddingRight, rightImagePaddingBottom, -1);
         rightImageView.setImageResource(rightImageSrc);
@@ -974,7 +1019,7 @@ public class TextGroupView extends LinearLayout {
     }
 
     public String getLeftText() {
-        return leftTextView.getText().toString();
+        return leftText;
     }
 
     public void setLeftText(String leftText) {
@@ -1118,7 +1163,7 @@ public class TextGroupView extends LinearLayout {
     }
 
     public String getCenterText() {
-        return centerTextView.getText().toString();
+        return centerText;
     }
 
     public void setCenterText(String centerText) {
@@ -1262,7 +1307,7 @@ public class TextGroupView extends LinearLayout {
     }
 
     public String getRightText() {
-        return rightTextView.getText().toString();
+        return rightText;
     }
 
     public void setRightText(String rightText) {
@@ -1468,6 +1513,15 @@ public class TextGroupView extends LinearLayout {
         editView.setMaxLines(editMaxLines);
     }
 
+    public int getEditMaxLength() {
+        return editMaxLength;
+    }
+
+    public void setEditMaxLength(int editMaxLength) {
+        this.editMaxLength = editMaxLength;
+        editView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editMaxLength)});
+    }
+
     public String getEditDigits() {
         return editDigits;
     }
@@ -1509,7 +1563,7 @@ public class TextGroupView extends LinearLayout {
     }
 
     public String getEditText() {
-        return editView.getText().toString();
+        return editText;
     }
 
     public void setEditText(String editText) {
@@ -1772,4 +1826,145 @@ public class TextGroupView extends LinearLayout {
         this.rightImagePaddingBottom = rightImagePaddingBottom;
         setPadding(rightImageView, rightImagePadding, rightTextPaddingLeft, rightImagePaddingTop, rightTextPaddingRight, rightImagePaddingBottom);
     }
+
+    public int getCenterImageSrc() {
+        return centerImageSrc;
+    }
+
+    public void setCenterImageSrc(int centerImageSrc) {
+        this.centerImageSrc = centerImageSrc;
+        centerImageView.setImageResource(centerImageSrc);
+    }
+
+    public int getCenterImageBackground() {
+        return centerImageBackground;
+    }
+
+    public void setCenterImageBackground(int centerImageBackground) {
+        this.centerImageBackground = centerImageBackground;
+        centerImageView.setBackgroundResource(centerImageBackground);
+    }
+
+    public int getCenterImageWidth() {
+        return centerImageWidth;
+    }
+
+    public void setCenterImageWidth(int centerImageWidth) {
+        this.centerImageWidth = centerImageWidth;
+        setParams(centerImageView, centerImageWidth, centerImageHeight);
+    }
+
+    public int getCenterImageHeight() {
+        return centerImageHeight;
+    }
+
+    public void setCenterImageHeight(int centerImageHeight) {
+        this.centerImageHeight = centerImageHeight;
+        setParams(centerImageView, centerImageWidth, centerImageHeight);
+    }
+
+    public ImageView.ScaleType getCenterImageScaleType() {
+        return scaleTypes[centerImageScaleType];
+    }
+
+    public void setCenterImageScaleType(ImageView.ScaleType scaleType) {
+        for (int i = 0; i < scaleTypes.length; i++) {
+            if (scaleTypes[i] == scaleType) {
+                this.centerImageScaleType = i;
+            }
+        }
+        centerImageView.setScaleType(scaleType);
+    }
+
+    public int getCenterImageMargin() {
+        return centerImageMargin;
+    }
+
+    public void setCenterImageMargin(int centerImageMargin) {
+        this.centerImageMargin = centerImageMargin;
+        setMargin(centerImageView, centerImageMargin, centerImageMarginLeft, centerImageMarginTop, centerImageMarginRight, centerImageMarginBottom);
+    }
+
+    public int getCenterImageMarginLeft() {
+        return centerImageMarginLeft;
+    }
+
+    public void setCenterImageMarginLeft(int centerImageMarginLeft) {
+        this.centerImageMarginLeft = centerImageMarginLeft;
+        setMargin(centerImageView, centerImageMargin, centerImageMarginLeft, centerImageMarginTop, centerImageMarginRight, centerImageMarginBottom);
+    }
+
+    public int getCenterImageMarginTop() {
+        return centerImageMarginTop;
+    }
+
+    public void setCenterImageMarginTop(int centerImageMarginTop) {
+        this.centerImageMarginTop = centerImageMarginTop;
+        setMargin(centerImageView, centerImageMargin, centerImageMarginLeft, centerImageMarginTop, centerImageMarginRight, centerImageMarginBottom);
+    }
+
+    public int getCenterImageMarginCenter() {
+        return centerImageMarginRight;
+    }
+
+    public void setCenterImageMarginCenter(int centerImageMarginRight) {
+        this.centerImageMarginRight = centerImageMarginRight;
+        setMargin(centerImageView, centerImageMargin, centerImageMarginLeft, centerImageMarginTop, centerImageMarginRight, centerImageMarginBottom);
+    }
+
+    public int getCenterImageMarginBottom() {
+        return centerImageMarginBottom;
+    }
+
+    public void setCenterImageMarginBottom(int centerImageMarginBottom) {
+        this.centerImageMarginBottom = centerImageMarginBottom;
+        setMargin(centerImageView, centerImageMargin, centerImageMarginLeft, centerImageMarginTop, centerImageMarginRight, centerImageMarginBottom);
+    }
+
+    public int getCenterImagePadding() {
+        return centerImagePadding;
+    }
+
+    public void setCenterImagePadding(int centerImagePadding) {
+        this.centerImagePadding = centerImagePadding;
+        setPadding(centerImageView, centerImagePadding, centerTextPaddingLeft, centerImagePaddingTop, centerTextPaddingRight, centerImagePaddingBottom);
+    }
+
+    public int getCenterImagePaddingLeft() {
+        return centerImagePaddingLeft;
+    }
+
+    public void setCenterImagePaddingLeft(int centerImagePaddingLeft) {
+        this.centerImagePaddingLeft = centerImagePaddingLeft;
+        setPadding(centerImageView, centerImagePadding, centerTextPaddingLeft, centerImagePaddingTop, centerTextPaddingRight, centerImagePaddingBottom);
+    }
+
+    public int getCenterImagePaddingTop() {
+        return centerImagePaddingTop;
+    }
+
+    public void setCenterImagePaddingTop(int centerImagePaddingTop) {
+        this.centerImagePaddingTop = centerImagePaddingTop;
+        setPadding(centerImageView, centerImagePadding, centerTextPaddingLeft, centerImagePaddingTop, centerTextPaddingRight, centerImagePaddingBottom);
+    }
+
+    public int getCenterImagePaddingRight() {
+        return centerImagePaddingRight;
+    }
+
+    public void setCenterImagePaddingRight(int centerImagePaddingRight) {
+        this.centerImagePaddingRight = centerImagePaddingRight;
+        setPadding(centerImageView, centerImagePadding, centerTextPaddingLeft, centerImagePaddingTop, centerTextPaddingRight, centerImagePaddingBottom);
+    }
+
+    public int getCenterImagePaddingBottom() {
+        return centerImagePaddingBottom;
+    }
+
+    public void setCenterImagePaddingBottom(int centerImagePaddingBottom) {
+        this.centerImagePaddingBottom = centerImagePaddingBottom;
+        setPadding(centerImageView, centerImagePadding, centerTextPaddingLeft, centerImagePaddingTop, centerTextPaddingRight, centerImagePaddingBottom);
+    }
+
+
 }
