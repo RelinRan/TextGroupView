@@ -1,6 +1,27 @@
 # TextGroupView
 ImageView + TextView + TextView +TextView+ EditText +ImageView + ImageView 实现的组合控件
-## JitPack依赖
+
+## 方法一  ARR依赖
+[TextGroupView.arr](https://github.com/RelinRan/ImageSelector/blob/master/TextGroupView.aar)
+Method 1 ARR dependence
+```
+android {
+    ....
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    implementation(name: 'TextGroupView', ext: 'aar')
+}
+
+```
+
+## 方法二   JitPack依赖
+Method 2 JitPack dependencies
 ### A.项目/build.grade
 ```
 	allprojects {
