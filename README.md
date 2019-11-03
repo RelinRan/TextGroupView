@@ -39,6 +39,7 @@ Method 2 JitPack dependencies
 ```
 # 效果图
 ![avatar](https://github.com/RelinRan/TextGroupView/blob/master/ic_rendering.png)
+<img src="https://github.com/RelinRan/TextGroupView/blob/master/ic_rendering.png" width="50%">
 # xml布局
 ```
     <com.android.view.TextGroupView
