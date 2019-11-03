@@ -13,7 +13,7 @@ ImageView + TextView + TextView +TextView+ EditText +ImageView + ImageView 实�
 ### B.项目/app/build.grade
 ```
 	dependencies {
-	        implementation 'com.github.RelinRan:TextGroupView:1.0.0'
+	        implementation 'com.github.RelinRan:TextGroupView:1.0.2'
 	}
 ```
 # 效果图
