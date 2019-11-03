@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
@@ -141,6 +142,7 @@ public class TextGroupView extends LinearLayout {
     private int editBackground;
     private boolean editSingleLine;
     private int editMaxLines;
+    private int editMaxLength;
     private String editDigits;
     private int editEllipsize;
     private int editInputType;
